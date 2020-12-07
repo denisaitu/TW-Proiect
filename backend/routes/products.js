@@ -19,11 +19,11 @@ router.get('/', function(req, res) {
  database.table ('products as p') 
   .join([{
     table : 'categories as c',
-    on : 'c.id = p.cat_id'
+    on : 'c.id = p.id_cat'
   }])
   .withFields(['c.title as category',
 'p.title as name',
-'p.prince',
+'p.price',
 'p.quantity',
 'p.image',
 'p.id'])

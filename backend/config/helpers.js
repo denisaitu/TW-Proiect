@@ -4,7 +4,7 @@ var MySqli = require ( 'mysqli');
     host : 'localhost',
     post : 3306,
     user : 'makeup-shop',
-    pass : '123456789makeup',
+    passwd : '123456789makeup',
     db : 'makeup_shop'
 });
 
