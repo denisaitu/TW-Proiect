@@ -7,11 +7,18 @@ var cors =require('cors');
 var app = express();
 
 
+
+
+
 var productsRouter= require('./routes/products');
 var usersRoute = require('./routes/users');
+var ordersRoute = require('./routes/orders');
+//var newOrderRoute = require('./routes/new');
 
 app.use('/api/products', productsRouter);
 app.use('/api/users', usersRoute);
+app.use('/api/orders', ordersRoute);
+//app.use('/api/new', newOrderRoute);
 
 app.use(cors( {
   origin : "*",
