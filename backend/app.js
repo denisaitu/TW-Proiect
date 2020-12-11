@@ -1,24 +1,48 @@
 var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var cors =require('cors');
-var app = express();
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+//const cors =require('cors');
+const app = express();
+
+const bodyParser = require('body-parser');   
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true })); 
+
+const cors = require('cors');
+const swaggerJSDoc = require('swagger-jsdoc');
+const swaggerUI = require('swagger-ui-express');
+
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: "Shop API",
+            description: "Backend Api",
+            contact: {
+                name: 'Amazing Developer'
+            },
+            servers: "http://localhost:3636"
+        }
+    },
+    apis: ["app.js", ".routes/*.js"]
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use('/api/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocs));
 
 
+const productsRouter= require('./routes/products');
+const usersRoute = require('./routes/users');
+const ordersRoute = require('./routes/orders');
 
 
-
-var productsRouter= require('./routes/products');
-var usersRoute = require('./routes/users');
-var ordersRoute = require('./routes/orders');
-//var newOrderRoute = require('./routes/new');
 
 app.use('/api/products', productsRouter);
 app.use('/api/users', usersRoute);
 app.use('/api/orders', ordersRoute);
-//app.use('/api/new', newOrderRoute);
+
+
 
 app.use(cors( {
   origin : "*",
@@ -53,5 +77,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+
 
 module.exports = app;
