@@ -4,7 +4,7 @@ const {database} = require('../config/helpers');
 const crypto = require('crypto'); 
 
 router.get('/', (req,res)=>{
-database.table('orders_detailes as od')
+database.table('orders_details as od')
 .join([
     {
         table: 'orders as o',
@@ -16,7 +16,7 @@ database.table('orders_detailes as od')
     },
     {
         table: 'users as u',
-        on: 'u.id= o.user_id'
+        on: 'u.id= o.id_user'
     }
 ])
 .withFields(['o.id','p.title as name','p.description', 'p.price', 'u.username'])
@@ -33,7 +33,7 @@ database.table('orders_detailes as od')
 
 router.get('/:id', (req,res)=>{
     const orderId = req.params.id;
-    database.table('orders_detailes as od')
+    database.table('orders_details as od')
     .join([
         {
             table: 'orders as o',
@@ -45,7 +45,7 @@ router.get('/:id', (req,res)=>{
         },
         {
             table: 'users as u',
-            on: 'u.id= o.user_id'
+            on: 'u.id= o.id_user'
         }
     ])
     .withFields(['o.id','p.title as name','p.description', 'p.price', 'u.username'])
