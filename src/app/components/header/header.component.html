@@ -9,7 +9,7 @@
         <li><a href="#"><i class="fa fa-map-marker"></i> Str. Vasile Parvan nr. 8</a></li>
       </ul>
       <ul class="header-links pull-right">
-        <li><a href="#"><i class="fa fa-euro"></i> EUR</a></li>
+        <li><a href="#"><i class="fa fa-euro"></i> RON</a></li>
         <li><a href="#"><i class="fa fa-user-o"></i> My Account</a></li>
       </ul>
     </div>
@@ -52,7 +52,7 @@
         <!-- ACCOUNT -->
         <div class="col-md-3 clearfix">
           <div class="header-ctn">
-            <!-- Wishlist -->
+            <!-- Wishlist 
             <div>
               <a href="#">
                 <i class="fa fa-heart-o"></i>
@@ -60,7 +60,7 @@
                 <div class="qty">0</div>
               </a>
             </div>
-            <!-- /Wishlist -->
+            /Wishlist  -->
 
             <!-- Cart -->
             <div class="dropdown" >
@@ -86,7 +86,7 @@
                 </div>
                 <div class="cart-summary">
                   <small>{{cartData.data[0].numInCart !== 0 ? cartData.data.length : 0}} Item(s) selected</small>
-                  <h5>TOTAL : {{cartTotal | currency:'EUR'}}</h5>
+                  <h5>TOTAL : {{cartTotal | currency:'RON'}}</h5>
                 </div>
                 <div class="cart-btns">
                   <a routerLink="/cart">View Cart</a>
@@ -124,8 +124,8 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav py-3">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Categories</a></li>
+        <li class="active"><a routerLink="/">Home</a></li>
+        <li><a href="/">Categories</a></li>
         <li><a href="#">Contact Us</a></li>
 
       </ul>

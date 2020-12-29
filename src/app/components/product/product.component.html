@@ -66,18 +66,9 @@
       <div class="col-md-5">
         <div class="product-details">
           <h2 class="product-name">{{product?.name}}</h2>
+         
           <div>
-            <div class="product-rating">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star-o"></i>
-            </div>
-            <a class="review-link" href="#">10 Review(s) | Add your review</a>
-          </div>
-          <div>
-            <h3 class="product-price">{{product?.price | currency:'EUR'}} </h3>
+            <h3 class="product-price">{{product?.price | currency:'RON '}} </h3>
             <span class="product-available">In Stock</span>
           </div>
           <p>{{product?.description}}</p>
@@ -118,13 +109,7 @@
       <!-- Product tab -->
       <div class="col-md-12">
         <div id="product-tab">
-          <!-- product tab nav -->
-          <ul class="tab-nav" role="tablist">
-            <li class="active" role="presentation"><a data-toggle="tab" href="#tab1" role="tab">Description</a></li>
-            <li role="presentation"><a data-toggle="tab" href="#tab2" role="tab">Details</a></li>
-            <li role="presentation"><a data-toggle="tab" href="#tab3" role="tab">Reviews (3)</a></li>
-          </ul>
-          <!-- /product tab nav -->
+          
 
           <!-- product tab content -->
           <div class="tab-content">

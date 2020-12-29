@@ -31,6 +31,6 @@ export class HomeComponent implements OnInit {
   }
 
   selectProduct(id: Number) {
-    this.router.navigate(['/products', id]).then();
+    this.router.navigate(['/product', id]).then();
   }
 }
