@@ -7,6 +7,8 @@ import {CartModelServer} from "../../models/cart.model";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
+
+
 export class HeaderComponent implements OnInit {
   cartData: CartModelServer;
   cartTotal: Number;
