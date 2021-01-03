@@ -4,14 +4,15 @@ import {ProductModelServer, serverResponse} from "../../models/product.model";
 import {CartService} from "../../services/cart.service";
 import {Router} from "@angular/router";
 
+
 @Component({
-  selector: 'mg-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'mg-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.scss']
 })
 
 
-export class HomeComponent implements OnInit {
+export class CategoryComponent implements OnInit {
   products: ProductModelServer[] = [];
 
   constructor(private productService: ProductService,
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+ 
   AddProduct(id: Number) {
     this.cartService.AddProductToCart(id);
   }
@@ -33,8 +35,5 @@ export class HomeComponent implements OnInit {
   selectProduct(id: Number) {
     this.router.navigate(['/product', id]).then();
   }
-  
-  productsFromCategory=function(){
-    this.router.navigate(['/category']).then();
-  }
+
 }
