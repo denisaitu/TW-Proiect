@@ -121,7 +121,7 @@
         <div class="order-products">
           <div class="order-col" *ngFor="let c of cartData.data;">
             <div>{{c.numInCart}}x {{c.product.name}}</div>
-            <div>{{(c.product.price*c.numInCart) | currency:'EUR'}}</div>
+            <div>{{(c.product.price*c.numInCart) | currency:'RON'}}</div>
           </div>
         </div>
         <div class="order-col">
@@ -130,7 +130,7 @@
         </div>
         <div class="order-col dropdown-divider">
           <div><strong>TOTAL</strong></div>
-          <div><strong class="order-total">{{cartTotal | currency:'EUR'}}</strong></div>
+          <div><strong class="order-total">{{cartTotal | currency:'RON'}}</strong></div>
         </div>
       </div>
       <div class="payment-method">
