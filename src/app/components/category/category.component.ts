@@ -21,8 +21,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getAllProducts().subscribe((prods: serverResponse ) => {
-      this.products = prods.products;
+    this.productService.getProductsFromCategory("Bath and Body").subscribe((prods: ProductModelServer[] ) => {
+      this.products = prods;
       console.log(this.products);
     });
   }
@@ -35,5 +35,7 @@ export class CategoryComponent implements OnInit {
   selectProduct(id: Number) {
     this.router.navigate(['/product', id]).then();
   }
+  
+  
 
 }

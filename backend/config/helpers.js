@@ -5,7 +5,7 @@ var MySqli = require ( 'mysqli');
     post : 3306,
     user : 'makeup-shop',
     passwd : '123456789makeup',
-    db : 'make_up'
+    db : 'makeup_shop'
 });
 
 let db= conn.emit(false,'');
