@@ -71,7 +71,7 @@ let productId= req.params.prodId;
 });
 
 /*get products of category*/ 
-router.get('/category/:catName',(req,res)=>{
+router.get('/category/:catId',(req,res)=>{
   
   let page = (req.query.page != undefined & req.query.page != 0) ? req.query.page :1;
   const limit = (req.query.limit != undefined && req.query.limit != 0) ? req.query.limit :10;
@@ -87,14 +87,14 @@ router.get('/category/:catName',(req,res)=>{
     endValue = 10;
   }
 
-  const cat_title = req.params.catName;
+  const cat_id = req.params.catId;
 
   database.table ('products as p') 
   .join([{
     table : 'categories as c',
-    on : `c.id = p.id_cat WHERE c.title LIKE '%${cat_title}%' `
+    on : `c.id = p.id_cat WHERE c.id LIKE '%${cat_id}%' `
   }])
-  .withFields(['c.title as category',
+  .withFields(['c.id as category',
 'p.title as name',
 'p.price',
 'p.quantity',
@@ -109,7 +109,7 @@ router.get('/category/:catName',(req,res)=>{
       products : prods
     });
   }else{
-    res.json({message : `No products of category ${cat_title} found`});
+    res.json({message : `No products of category ${cat_id} found`});
   }
 }).catch (err => console.log(err))
 });

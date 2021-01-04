@@ -21,8 +21,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productService.getProductsFromCategory("Bath and Body").subscribe((prods: ProductModelServer[] ) => {
-      this.products = prods;
+    this.productService.getAllProducts().subscribe((prods: serverResponse ) => {
+      this.products = prods.products;
       console.log(this.products);
     });
   }

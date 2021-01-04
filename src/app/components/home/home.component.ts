@@ -13,11 +13,11 @@ import {Router} from "@angular/router";
 
 export class HomeComponent implements OnInit {
   products: ProductModelServer[] = [];
+  
 
   constructor(private productService: ProductService,
               private cartService: CartService,
-              private router:Router) {
-  }
+              private router:Router){}
 
   ngOnInit() {
     this.productService.getAllProducts().subscribe((prods: serverResponse ) => {
